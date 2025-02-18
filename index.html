@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neverdies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto Mono', monospace;
+            position: relative;
+            overflow-x: hidden;
+        }
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            color: #8B5CF6;
+            font-size: 12px;
+            opacity: 0.8;
+            user-select: none;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <div id="snow-container"></div>
+    
+    <section class="min-h-screen flex flex-col items-center justify-center text-center">
+        <nav class="flex justify-center space-x-8 py-4">
+            <a class="text-white hover:text-purple-500" href="#">Home</a>
+            <a class="text-white hover:text-purple-500" href="#features">Features</a>
+            <a class="text-white hover:text-purple-500" href="#developers">Developers</a>
+            <a class="text-white hover:text-purple-500" href="purchase.html">Purchase</a>
+            <a class="text-white hover:text-purple-500" href="#">Dashboard</a>
+            <a class="text-white hover:text-purple-500" href="changelogs.html">Changelogs</a>
+        </nav>
+        <div class="flex flex-col items-center justify-center">
+            <img src="assets/logo1.png" width="150" height="150" alt="Purple skull logo" class="mb-6">
+            <h1 class="text-4xl font-bold mb-2">Neverdies</h1>
+            <p class="text-lg mb-6">The best premium PvP and utility client.</p>
+            <button onclick="window.location.href='purchase.html'" class="bg-transparent border border-white text-white py-2 px-4 rounded hover:bg-purple-500 hover:border-purple-500">Purchase</button>
+        </div>
+    </section>
+    
+    <section id="features" class="min-h-screen fade-in flex flex-col justify-center text-center">
+        <h1 class="text-4xl font-bold animated-link">Features</h1>
+        <div class="max-w-6xl mx-auto px-4 mt-8 grid md:grid-cols-2 gap-8 items-center">
+            <div>
+                <h2 class="text-2xl font-bold">GUI</h2>
+                <p class="mt-2">Neverdies has the most customizable click GUI you'll ever see.</p>
+            </div>
+            <div class="flex justify-center">
+                <img src="assets/gui1.png" alt="GUI Screenshot" class="border-2 border-purple-500">
+            </div>
+            <div class="flex justify-center">
+                <img src="assets/combat1.png" alt="Combat Module Screenshot" class="border-2 border-purple-500">
+            </div>
+            <div>
+                <h2 class="text-2xl font-bold">Combat</h2>
+                <p class="mt-2">Neverdies provides amazing combat modules.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="developers" class="min-h-screen fade-in flex flex-col justify-center text-center">
+        <h1 class="text-4xl font-bold animated-link">Developers</h1>
+        <div class="max-w-6xl mx-auto px-4 mt-8 grid grid-cols-2 md:grid-cols-5 gap-4">
+            <div class="flex flex-col items-center">
+                <img src="assets/developer1.png" alt="AzE" class="rounded-full border-2 border-purple-500">
+                <p class="mt-2">NightPvP</p>
+            </div>
+            <div class="flex flex-col items-center">
+                <img src="assets/developer2.png" alt="LachCrafter" class="rounded-full border-2 border-purple-500">
+                <p class="mt-2">Azkeel</p>
+            </div>
+            <div class="flex flex-col items-center">
+                <img src="assets/developer3.png" alt="Mortex" class="rounded-full border-2 border-purple-500">
+                <p class="mt-2">Luisk87p</p>
+            </div>
+            <div class="flex flex-col items-center">
+                <img src="assets/developer4.png" alt="Pixako0" class="rounded-full border-2 border-purple-500">
+                <p class="mt-2">Afar Arkaris</p>
+            </div>
+            <div class="flex flex-col items-center">
+                <img src="assets/developer5.png" alt="Chronos" class="rounded-full border-2 border-purple-500">
+                <p class="mt-2">AlexisOso4455</p>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        function createSnowflake() {
+            const snowflake = document.createElement("div");
+            snowflake.innerHTML = "&#10052;"; // Unicode de copo de nieve
+            snowflake.classList.add("snowflake");
+            snowflake.style.left = Math.random() * 100 + "vw";
+            snowflake.style.animationDuration = (Math.random() * 3 + 2) + "s";
+            snowflake.style.fontSize = (Math.random() * 10 + 10) + "px";
+            document.getElementById("snow-container").appendChild(snowflake);
+            setTimeout(() => {
+                snowflake.remove();
+            }, 5000);
+        }
+        setInterval(createSnowflake, 200);
+    </script>
+</body>
+</html>
